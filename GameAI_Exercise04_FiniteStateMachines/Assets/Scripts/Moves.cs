@@ -18,6 +18,7 @@ public class Moves : MonoBehaviour
     {
         agent = this.GetComponent<NavMeshAgent>();
         hidingSpots = GameObject.FindGameObjectsWithTag("Hide");
+        Debug.Log(hidingSpots.Length);
     }
 
     public void Seek(Vector3 location)
@@ -105,7 +106,7 @@ public class Moves : MonoBehaviour
                 dist = Vector3.Distance(this.transform.position, hidePos);
             }
         }
-
+        Debug.Log(chosenSpot);
         Collider hideCol = chosenGO.GetComponent<Collider>();
         Ray backRay = new Ray(chosenSpot, -chosenDir.normalized);
         RaycastHit info;
